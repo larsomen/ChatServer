@@ -131,7 +131,7 @@ class clientThread extends Thread {
         if (line.startsWith("/users")) {
           
           for (int i = 0; i < maxClientsCount; i++) {
-            if (threads[i] != null && threads[i].clientName != null) {
+            if (threads[i] != null && threads[i] != this && threads[i].clientName != null) {
               os.print(threads[i].clientName+',');
             }
           }
