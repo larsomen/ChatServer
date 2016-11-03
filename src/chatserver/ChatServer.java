@@ -130,14 +130,13 @@ class clientThread extends Thread {
         }
 //        laat lijst zien met gebruikers
         if (line.startsWith("/users")) {
-          String[] users;
-          users = new String[10];
+          
           for (int i = 0; i < maxClientsCount; i++) {
-            if (threads[i] != null && threads[i] != this && threads[i].clientName != null) {
-              users[users.length - 1] = threads[i].clientName;
+            if (threads[i] != null && threads[i].clientName != null) {
+              os.print(threads[i].clientName+',');
             }
           }
-          os.println(Arrays.toString(users));
+          os.println("");
         }
         /* private message en zo */
         if (line.startsWith("@")) {
